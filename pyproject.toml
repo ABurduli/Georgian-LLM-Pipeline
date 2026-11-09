@@ -1,15 +1,16 @@
 [project]
 name = "georgian-llm-pipeline"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+description = "Georgian NLP and tokenizer"
+readme = "readme.md"
 authors = [
     { name = "Archil Burduli", email = "achiko@hotmail.com" }
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "sentencepiece>=0.2.3",
+    "sentencepiece==0.2.0",
     "stanza>=1.15.0",
+    "transformers>=4.47.0,<5.0.0",
 ]
 
 [project.scripts]

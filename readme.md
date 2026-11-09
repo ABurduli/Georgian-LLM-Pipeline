@@ -562,7 +562,7 @@ Example output:
 This project demonstrates how a custom SentencePiece tokenizer can be combined with the standard LLaMA tokenizer to improve tokenization efficiency for non-English languages such as Georgian.
 
 ```bash
-python test.py
+uv run test.py
 ```
 
 ### Results

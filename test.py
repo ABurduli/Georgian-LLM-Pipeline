@@ -1,4 +1,5 @@
 from shlex import split
+from pathlib import Path
 
 import sentencepiece as spm
 
@@ -27,8 +28,12 @@ print("Encoded text:", std_encoded_text)
 print("Tokens by ID:", [std_tokenizer.convert_ids_to_tokens(i) for i in std_encoded_text])
 
 print("Loading custom LLaMA tokenizer...")
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+VOCAB_PATH = SCRIPT_DIR / "outputs" / "tokenizer" / "tokenizer.model"
+
 tokenizer = LlamaTokenizer(
-    vocab_file="outputs/tokenizer/tokenizer.model",
+    vocab_file=VOCAB_PATH,
     legacy=False
 )
 print("Vocabulary size:", tokenizer.vocab_size)
