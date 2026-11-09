@@ -556,6 +556,41 @@ Example output:
 ]
 ```
 
+## Tokenization Efficiency for Non-English Languages
+
+
+This project demonstrates how a custom SentencePiece tokenizer can be combined with the standard LLaMA tokenizer to improve tokenization efficiency for non-English languages such as Georgian.
+
+```bash
+python test.py
+```
+
+### Results
+
+Test text:
+
+> "თბილისი საქართველოს დედაქალაქია. Tbilisi is the capital of Georgia."
+
+| Tokenizer | Token Count |
+|------------|-------------|
+| Standard LLaMA | 43 |
+| Custom SentencePiece | 21 |
+| Combined Tokenizer | 22 |
+
+The custom tokenizer reduced the number of tokens to approximately **49%** of the standard LLaMA tokenizer, while the combined tokenizer achieved a similar reduction with only **22 tokens**.
+
+### Why It Matters
+
+Large Language Models process text as tokens. When a tokenizer is optimized for a specific language, it can represent words and phrases using fewer tokens. This provides several advantages:
+
+- Lower inference and API costs
+- Reduced memory consumption
+- Faster processing
+- More efficient use of the model context window
+- Better support for low-resource and non-English languages
+
+For Georgian and other non-English languages, a language-specific tokenizer can significantly reduce token fragmentation compared to English-centric tokenizers. As a result, the same text requires fewer tokens, making AI applications more efficient and cost-effective.
+
 ---
 
 # Processing Pipeline
