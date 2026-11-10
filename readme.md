@@ -575,9 +575,9 @@ Test text:
 |------------|-------------|
 | Standard LLaMA | 43 |
 | Custom SentencePiece | 21 |
-| Combined Tokenizer | 22 |
+| Combined Tokenizer | 26 |
 
-The custom tokenizer reduced the number of tokens to approximately **49%** of the standard LLaMA tokenizer, while the combined tokenizer achieved a similar reduction with only **22 tokens**.
+The custom tokenizer reduced the number of tokens to approximately **60%** of the standard LLaMA tokenizer, while the combined tokenizer achieved a similar reduction with only **26 tokens**.
 
 ### Why It Matters
 

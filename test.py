@@ -30,12 +30,10 @@ print("Tokens by ID:", [std_tokenizer.convert_ids_to_tokens(i) for i in std_enco
 print("Loading custom LLaMA tokenizer...")
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-VOCAB_PATH = SCRIPT_DIR / "outputs" / "tokenizer" / "tokenizer.model"
+VOCAB_PATH = SCRIPT_DIR / "outputs" / "tokenizer" 
 
-tokenizer = LlamaTokenizer(
-    vocab_file=VOCAB_PATH,
-    legacy=False
-)
+tokenizer = LlamaTokenizer.from_pretrained(VOCAB_PATH,legacy=False)
+
 print("Vocabulary size:", tokenizer.vocab_size)
 encoded_text = tokenizer.encode(sample_text)
 print("Encoded text:", encoded_text)
@@ -46,6 +44,7 @@ print("Combine tokenizers...")
 # Convert vocab keys to sets for fast membership testing
 std_vocab_set = set(std_tokenizer.get_vocab().keys())
 new_tokens = [tok for tok in tokenizer.get_vocab() if tok not in std_vocab_set]
+
 if new_tokens:
     std_tokenizer.add_tokens(new_tokens)
     print(f"Added {len(new_tokens)} new tokens to tokenizer.")
